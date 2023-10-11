@@ -22,7 +22,6 @@ class Solution {
 
         for(int i = 0; i < privacies.length; i++){
             String[] privacyInfo = privacies[i].split(" ");
-            String[] privacyDate = privacyInfo[0].split("\\.");
                 
             // 개인정보 수집일로부터 유효기간 계산
             cal.setTime(sdf.parse(privacyInfo[0]));
