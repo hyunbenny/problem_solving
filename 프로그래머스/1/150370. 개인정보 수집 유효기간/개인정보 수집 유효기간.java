@@ -4,7 +4,7 @@ import java.util.*;
 
 class Solution {
     public int[] solution(String today, String[] terms, String[] privacies) throws ParseException{
-        int[] answer = {};
+        List<Integer> answer = new ArrayList<>();
         
         Map<String, Integer> termsMap = new HashMap<>();
         for(int i = 0; i < terms.length; i++){
@@ -17,9 +17,6 @@ class Solution {
         
         Calendar cal = Calendar.getInstance();
         
-        
-        List<Integer> tmpList = new ArrayList<>();
-
         for(int i = 0; i < privacies.length; i++){
             String[] privacyInfo = privacies[i].split(" ");
                 
@@ -32,17 +29,10 @@ class Solution {
             Date expireDate = cal.getTime();
             
             // 비교
-            if (expireDate.before(todayDate) || expireDate.equals(todayDate)) tmpList.add(i + 1);
+            if (expireDate.before(todayDate) || expireDate.equals(todayDate)) answer.add(i + 1);
 
         }
 
-        answer = new int[tmpList.size()];
-        int i = 0;
-        for (Integer count : tmpList) {
-            answer[i] = count;
-            i++;
-        }
-        
-        return answer;
+        return answer.stream().mapToInt(n -> n).toArray();
     }
 }
