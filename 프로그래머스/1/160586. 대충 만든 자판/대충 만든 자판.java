@@ -12,7 +12,7 @@ class Solution {
 
                 for (int j = 0; j < keys.length; j++) {
                     String key = keys[j];
-                    if (!mins.containsKey(key) || mins.get(key) > j) {
+                    if (!mins.containsKey(key) || mins.get(key) > j + 1) {
                         mins.put(key, j + 1);
                     }
                 }
