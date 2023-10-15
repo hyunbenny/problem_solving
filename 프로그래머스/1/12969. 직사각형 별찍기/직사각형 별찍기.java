@@ -1,4 +1,5 @@
-import java.util.Scanner;
+import java.util.*;
+import java.lang.*;
 
 class Solution {
     public static void main(String[] args) {
@@ -6,11 +7,15 @@ class Solution {
         int n = sc.nextInt();
         int m = sc.nextInt();
         
+        StringBuilder sb = new StringBuilder();
+        
         for(int i = 0; i < m; i++){
             for(int j = 0; j < n; j++){
-                System.out.print("*");
+                sb.append("*");
             }
-            System.out.println();
+            sb.append("\n");
         }        
+        
+        System.out.print(sb.toString());
     }
 }
