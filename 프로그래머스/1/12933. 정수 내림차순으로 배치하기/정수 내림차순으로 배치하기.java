@@ -2,18 +2,11 @@ import java.util.*;
 
 class Solution {
     public long solution(long n) {
-        long answer = 0;
-
-        char[] nums = String.valueOf(n).toCharArray();
-        List<Integer> numList = new ArrayList<>();
-        for (int i = 0; i < nums.length; i++) {
-            numList.add(Character.getNumericValue(nums[i]));
-        }
+                String[] nums = String.valueOf(n).split("");
+        Arrays.sort(nums, Collections.reverseOrder());
 
         StringBuilder sb = new StringBuilder();
-        numList.stream().sorted((o1, o2) -> {
-            return o2 - o1;
-        }).mapToInt(Integer::intValue).forEach(i -> sb.append(i));
+        Arrays.stream(nums).forEach(i -> sb.append(i));
 
         return Long.parseLong(sb.toString());
     }
