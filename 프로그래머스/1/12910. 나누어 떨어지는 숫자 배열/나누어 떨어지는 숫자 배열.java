@@ -10,10 +10,9 @@ class Solution {
         
         if(answer.size() == 0) {
             answer.add(-1);
-        }else {
-            answer.sort((o1, o2) -> o1 - o2);
         }
         
+        answer.sort((o1, o2) -> o1 - o2);
         return answer.stream().mapToInt(i -> i.intValue()).toArray();
     }
 }
